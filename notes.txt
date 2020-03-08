@@ -1,0 +1,137 @@
+React
+
+    performance (https://reactjs.org/docs/optimizing-performance.html)
+
+        build mode
+
+        virtualize long lists (windowing)
+        
+        avoid reconciliation
+
+            virtual dom
+
+            implement shallow comparison in `shouldComponentUpdate`
+            or use `PureComponent` (https://reactjs.org/docs/react-api.html#reactpurecomponent)
+
+    HOC (higher order component) (https://reactjs.org/docs/higher-order-components.html)
+
+        HOC is function that recieves component and returns a new component. 
+        In other words it transforms component into another component.
+    
+    lifecycle methods
+
+        https://drive.google.com/file/d/1_M9s6JR8gGvXdi6RnyqBMygkjI7nibmk/view?usp=sharing
+
+        Mounting
+
+            constructor
+
+            getDerivedStateFromProps
+
+            render
+
+            componentDidMount
+
+        Updating
+
+            getDerivedStateFromProps
+
+            shouldComponentUpdate
+
+            render
+
+            getSnapshotBeforeUpdate
+
+                If you there is `getSnapshotBeforeUpdate` method,
+                then you also should include `componentDidUpdate`.
+
+            componentDidUpdate
+
+        Unmounting
+
+            componentWillUnmount
+        
+    set state based on previous one
+
+        this.setState((state, props) => {});
+
+    what does render function returns?
+
+        https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/57#issuecomment-451582715
+
+        React.JSX return value of React.createElement
+        React.ReactNode return value of component
+
+    virtual dom in depth
+
+        Virtual DOM consists of objects that are light copy of DOM nodes.
+
+        React updates all elements in Virtual DOM, 
+        compares it with snapshot (copy of Virtual DOM before update) 
+        and then updets specific DOM objects related to changed Virtual DOM objects.
+
+        https://www.codecademy.com/articles/react-virtual-dom
+    
+    cons of react
+
+        * it's not completed library. Along side you should lear
+          a lot of auxiliar libraries
+
+        * (can be included in pros also) constantly changing library.
+          Immature technology.
+
+        * JSX. HTML mixes with JavaScript
+
+        * React represents only view side from MVC
+
+        * there is not common way to structure your project
+
+        * complex state management. To manege state you should include a third party library.
+
+    SPA (single page application)
+
+        https://developer.mozilla.org/en-US/docs/Glossary/SPA
+        https://dzone.com/articles/what-is-a-single-page-application
+
+        The application that can switch between pages without reloading.
+        This is application creates dynamically so can slightly affect 
+        google indexing and some SEO wirk.
+        Because for google it's hard to manage dynamic applications.
+        Ones the user open the page then all of the content of the application 
+        begin download so this affects initial loading.
+        But after that the web app works far more faster than when it would be static.
+
+    render props
+
+        Is technique for code reusing trhought props.
+        For code reusing React uses components. 
+        > Any prop that is a function that a component 
+        uses to know what to render is technically a “render prop”.
+
+    prop drilling
+
+        When you pass property trought bunch of components.
+
+    context
+
+        Allows you to share data among nested components.
+
+    hooks
+    
+        Hooks are functions that allows you to add React features to the function components.
+
+        useState
+
+            Hook that allows you to use state into your function component.
+
+        useEffect
+
+            Hook that allows you to apply function on every UI update. the function passed to 
+            useEffect fires after layout and paint, during a deferred event.
+            By default, effects run after completed render, but you can choose to fire them
+            only if certain values have been changed.
+
+        custom hooks
+
+            Lets you to extract component logic into a new reusable function.
+    
