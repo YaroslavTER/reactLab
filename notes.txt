@@ -135,3 +135,20 @@ React
 
             Lets you to extract component logic into a new reusable function.
     
+Redux
+
+    Is a lybrary for a state manegement.
+
+        Action
+
+            Is payload of information that sand data from your application to your store.
+            The action tells what happens but don't describe how the satet changes.
+            This is the only one source of information that sands using store.dispatch().
+
+        Reducer
+
+            Specifies how the application state changes in responce to actions sent to the store.
+            Is a pure function that takes previous state and action and returns the next state.
+
+            (previousState, action) => nextState
+
