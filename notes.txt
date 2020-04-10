@@ -152,3 +152,7 @@ Redux
 
             (previousState, action) => nextState
 
+Redux Thunk
+
+    Allows you to write action creators that return function instead of an action.
+
