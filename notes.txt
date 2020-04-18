@@ -116,6 +116,10 @@ React
 
         Allows you to share data among nested components.
 
+    refs 
+
+        Allows you to directly access to dom nodes.
+
     hooks
     
         Hooks are functions that allows you to add React features to the function components.
