@@ -120,6 +120,12 @@ React
 
         Allows you to directly access to dom nodes.
 
+    portals
+
+        Allows you to render children element into DOM node that exists outside DOM hierarchy
+        of the parent element.
+        A typical usage for it is when parent container has an overflow: hidden or z-index.
+
     hooks
     
         Hooks are functions that allows you to add React features to the function components.
