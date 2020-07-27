@@ -67,7 +67,7 @@ React
         Virtual DOM consists of objects that are light copy of DOM nodes.
 
         React updates all elements in Virtual DOM, 
-        compares it with snapshot (copy of Virtual DOM before update) 
+        compares them with snapshot (copy of Virtual DOM before update) 
         and then updets specific DOM objects related to changed Virtual DOM objects.
 
         https://www.codecademy.com/articles/react-virtual-dom
@@ -145,6 +145,10 @@ React
 
             Lets you to extract component logic into a new reusable function.
     
+    PropTypes
+
+        Uses to mark the type of each property and whether it's required or not.
+    
 Redux
 
     Is a lybrary for a state manegement.
@@ -166,3 +170,10 @@ Redux Thunk
 
     Allows you to write action creators that return function instead of an action.
 
+React Router
+
+    To add router to your React component, wrap your entire JSX into Router 
+    and part of that you want to display into Route and mark it's path.
+    Route behaves like render props or you can pass your component through `component` property.
+    To show the content that supposed to be displayed only on particular route, add exact attribute.
+    To navigate to particular route. You should paste Link component into your JSX expression.
