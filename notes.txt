@@ -42,7 +42,7 @@ React
 
             getSnapshotBeforeUpdate
 
-                If you there is `getSnapshotBeforeUpdate` method,
+                If there is `getSnapshotBeforeUpdate` method,
                 then you also should include `componentDidUpdate`.
 
             componentDidUpdate
@@ -74,7 +74,7 @@ React
     
     cons of react
 
-        * it's not completed library. Along side you should lear
+        * it's not completed library. Along side you should learn
           a lot of auxiliar libraries
 
         * (can be included in pros also) constantly changing library.
@@ -110,7 +110,7 @@ React
 
     prop drilling
 
-        When you pass property trought bunch of components.
+        When you pass property trought bunch of child components.
 
     context
 
