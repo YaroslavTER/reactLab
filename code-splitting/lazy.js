@@ -1,0 +1,1 @@
+const Component = React.lazy(() => import('./Component'));

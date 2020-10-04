@@ -1,4 +1,4 @@
-function withSubscription(WrapperComponent, retrieveData) {
+function withSubscription(WrappedComponent, retrieveData) {
     return class extends React.Component {
         constructor(props) {
             super(props);
@@ -25,7 +25,7 @@ function withSubscription(WrapperComponent, retrieveData) {
         }
 
         render() {
-            return <WrapperComponent data={this.state.data} {...props} />
+            return <WrappedComponent data={this.state.data} {...props} />
         }
     }
 }

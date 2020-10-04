@@ -10,23 +10,65 @@ React
 
             virtual dom
 
-            implement shallow comparison in `shouldComponentUpdate`
+            Implement shallow comparison in `shouldComponentUpdate`
             or use `PureComponent` (https://reactjs.org/docs/react-api.html#reactpurecomponent)
+
+        Code Splitting (https://reactjs.org/docs/code-splitting.html)
+
+            (https://webpack.js.org/guides/code-splitting/)
+
+            Allows to split the code into various bundles witch can be loaded on demand
+            or in parallel. It can be used to achive smaller bundles and controll resource
+            loading prioritization which, if used correctly, can have major impact on load time.
+
+            Three approaches for code splitting in WebPack:
+
+                - Entry Points: manually split code using `entry` configuration.
+                - Prevent Duplication: use the `optimization.splitChunks` to dedupe and
+                    split chunks (https://webpack.js.org/configuration/optimization/#optimizationsplitchunks).
+                - Dynamic Imports: Split code via inline function calls within modules.
+
+            Route-based code splitting
+
+                Allows to dynamically load code chunks for specific routes.
+
+        React.lazy
+
+            Lets you define a component that's loaded dynamically. This helps to reduce
+            the bundle size to delay loading components that aren't used during the
+            initial render.
+
+            Requires to be nested into `<React.Suspense></React.Suspense>` in the rendering tree.
+
+        React.Suspense
+
+            Lets to specify loading indicator in case some componens are not yet ready for render.
+
+            Lazy loading is the only case supported.
+
+        React.memo
 
     HOC (higher order component) (https://reactjs.org/docs/higher-order-components.html)
 
         HOC is function that recieves component and returns a new component. 
         In other words it transforms component into another component.
+
+    Reconciliation (https://reactjs.org/docs/reconciliation.html)
+        
+        Rules of DOM tree nodes management.
     
-    lifecycle methods
+    lifecycle methods (https://drive.google.com/file/d/1_M9s6JR8gGvXdi6RnyqBMygkjI7nibmk/view?usp=sharing)
 
-        https://drive.google.com/file/d/1_M9s6JR8gGvXdi6RnyqBMygkjI7nibmk/view?usp=sharing
-
+        Initialization
+       
         Mounting
 
             constructor
 
-            getDerivedStateFromProps
+            getDerivedStateFromProps (better to avoid using this lifecycle method
+                https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state)
+
+                Calls anytime parent component renders.
 
             render
 
@@ -53,7 +95,11 @@ React
         
     set state based on previous one
 
-        this.setState((state, props) => {});
+        this.setState((state, props) => {/*new state object*/});
+
+        To change arrays or objects as object properties you should not
+        mutate them and use `Object.assing({}, state)`, spread operator
+        or Immer instead.
 
     what does render function returns?
 
@@ -72,6 +118,62 @@ React
 
         https://www.codecademy.com/articles/react-virtual-dom
     
+    render props
+
+        Is technique for code reusing trhought props.
+        For code reusing React uses components. 
+        > Any prop that is a function that a component 
+        uses to know what to render is technically a “render prop”.
+
+    prop drilling
+
+        When you pass property trought bunch of child components.
+
+    context
+
+        Allows you to share data among nested components.
+
+    refs (https://reactjs.org/docs/refs-and-the-dom.html)
+
+        Allows you to directly access to dom nodes.
+
+    portals
+
+        Allows you to render children element into DOM node that exists outside DOM hierarchy
+        of the parent element.
+        A typical usage for it is when parent container has an overflow: hidden or z-index.
+
+    hooks
+    
+        Hooks are functions that allows you to add React features to the function components.
+
+        Rules:
+
+            - Only call Hooks at the top level. Don't call Hooks inside loops, conditions,
+                or nested functions.
+            - Only call Hooks from React function components. Don't call Hooks from regular
+                JavaScript functions.
+
+        useState
+
+            Hook that allows you to use state into your function component.
+
+        useEffect
+
+            Hook that allows you to apply function on every UI update. the function passed to 
+            useEffect fires after layout and paint, during a deferred event.
+            By default, effects run after completed render, but you can choose to fire them
+            only if certain values have been changed.
+
+        custom hooks
+
+            Is function component that returns state instead of JSX.
+            Lets you to extract component logic into a new reusable function.
+    
+    PropTypes
+
+        Uses to mark the type of each property and whether it's required or not.
+
     cons of react
 
         * it's not completed library. Along side you should learn
@@ -100,54 +202,6 @@ React
         Ones the user open the page then all of the content of the application 
         begin download so this affects initial loading.
         But after that the web app works far more faster than when it would be static.
-
-    render props
-
-        Is technique for code reusing trhought props.
-        For code reusing React uses components. 
-        > Any prop that is a function that a component 
-        uses to know what to render is technically a “render prop”.
-
-    prop drilling
-
-        When you pass property trought bunch of child components.
-
-    context
-
-        Allows you to share data among nested components.
-
-    refs 
-
-        Allows you to directly access to dom nodes.
-
-    portals
-
-        Allows you to render children element into DOM node that exists outside DOM hierarchy
-        of the parent element.
-        A typical usage for it is when parent container has an overflow: hidden or z-index.
-
-    hooks
-    
-        Hooks are functions that allows you to add React features to the function components.
-
-        useState
-
-            Hook that allows you to use state into your function component.
-
-        useEffect
-
-            Hook that allows you to apply function on every UI update. the function passed to 
-            useEffect fires after layout and paint, during a deferred event.
-            By default, effects run after completed render, but you can choose to fire them
-            only if certain values have been changed.
-
-        custom hooks
-
-            Lets you to extract component logic into a new reusable function.
-    
-    PropTypes
-
-        Uses to mark the type of each property and whether it's required or not.
     
 Redux
 
