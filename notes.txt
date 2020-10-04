@@ -160,10 +160,10 @@ React
 
         useEffect
 
-            Hook that allows you to apply function on every UI update. the function passed to 
-            useEffect fires after layout and paint, during a deferred event.
-            By default, effects run after completed render, but you can choose to fire them
-            only if certain values have been changed.
+            Hook that allows you to apply function on every component render. 
+            the function passed to `useEffect` fires after layout and paint, during 
+            a deferred event. By default, effects run after completed render, but you 
+            can choose to fire them only if certain values have been changed.
 
         custom hooks
 
@@ -190,18 +190,17 @@ React
 
         * complex state management. To manege state you should include a third party library.
 
-    SPA (single page application)
+React Router
 
-        https://developer.mozilla.org/en-US/docs/Glossary/SPA
-        https://dzone.com/articles/what-is-a-single-page-application
+    To add router to your React component, wrap your entire JSX into Router 
+    and part of that you want to display into Route and mark it's path.
+    Route behaves like render props or you can pass your component through `component` property.
+    To show the content that supposed to be displayed only on particular route, add exact attribute.
+    To navigate to particular route. You should paste Link component into your JSX expression.
 
-        The application that can switch between pages without reloading.
-        This is application creates dynamically so can slightly affect 
-        google indexing and some SEO wirk.
-        Because for google it's hard to manage dynamic applications.
-        Ones the user open the page then all of the content of the application 
-        begin download so this affects initial loading.
-        But after that the web app works far more faster than when it would be static.
+Styled Components (https://styled-components.com/docs/basics)
+
+    Allows you to create syled React components using template literals.
     
 Redux
 
@@ -211,7 +210,11 @@ Redux
 
             Is payload of information that sand data from your application to your store.
             The action tells what happens but don't describe how the satet changes.
-            This is the only one source of information that sands using store.dispatch().
+            This is the only one source of information that sands using `store.dispatch`.
+
+        Action creator
+
+            Function that retunrs action.
 
         Reducer
 
@@ -220,14 +223,11 @@ Redux
 
             (previousState, action) => nextState
 
+        Middleware
+
+            The agent function between receiver and sender.
+
 Redux Thunk
 
-    Allows you to write action creators that return function instead of an action.
-
-React Router
-
-    To add router to your React component, wrap your entire JSX into Router 
-    and part of that you want to display into Route and mark it's path.
-    Route behaves like render props or you can pass your component through `component` property.
-    To show the content that supposed to be displayed only on particular route, add exact attribute.
-    To navigate to particular route. You should paste Link component into your JSX expression.
+    Is middleware for Redux that allows you to write action creators
+    that return function instead of an action.

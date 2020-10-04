@@ -11,9 +11,19 @@ function counter(state = 0, {type}) {
   }
 }
 
+/* 
+  `store` contains only {subscribe, dispatch, getState}
+*/
 let store = createStore(counter);
 
-store.subscribe(() => console.log(store.getState));
+/* 
+  `store.subscribe` nedded to update UI on stet change.
+*/
+store.subscribe(() => console.log(store.getState()));
 
 store.dispatch({type: 'INCREMENT'});
+//1
+store.dispatch({type: 'INCREMENT'});
+//2
 store.dispatch({type: 'DECREMENT'});
+//1
